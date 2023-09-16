@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os.path
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -52,11 +52,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'PythonSecondPart.urls'
 
+MY_CRUD_APP_TEMPLATE_DIR = os.path.join(BASE_DIR, "myCrudApp/templates")
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'DIRS': [MY_CRUD_APP_TEMPLATE_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,7 +79,7 @@ WSGI_APPLICATION = 'PythonSecondPart.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'myDb',
+        'NAME': 'testDb',
         'USER': 'Zertalian',
         'PASSWORD': 'password',
         'HOST': 'localhost',
